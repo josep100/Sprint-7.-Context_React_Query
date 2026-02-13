@@ -1,15 +1,15 @@
-const BASE_URL = import.meta.env.VITE_API_URL;
-const TMDB_TOKEN = import.meta.env.VITE_API_KEY;
 
-const options = {
+const createOptions = () => ({
   headers: {
-    Authorization: `Bearer ${TMDB_TOKEN}`,
+    Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
     'Content-Type': 'application/json',
   },
-};
+});
+
 
 export const tmdbFetch = async <T>(endpoint: string): Promise<T> => {
-  const res = await fetch(`${BASE_URL}${endpoint}`, options);
+  
+  const res = await fetch(`${import.meta.env.VITE_API_URL}${endpoint}`, createOptions());
 
   if (!res.ok) {
     throw new Error(`TMDB error: ${res.status}`);
