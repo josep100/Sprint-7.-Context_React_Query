@@ -1,9 +1,9 @@
 import { describe, it, expect, vi } from 'vitest';
-import { getMovies, getMovieById } from '../services/tmdb.service';
-import { tmdbFetch } from '../services/tmdbClient'; // Importamos la original para mockearla
+import { getMovies, getMovieById } from '../features/movies/services/tmdb.service';
+import { tmdbFetch } from '../features/movies/services/tmdbClient'; // Importamos la original para mockearla
 
 // 1. Mockeamos el módulo completo del cliente
-vi.mock('../services/tmdbClient.ts', () => ({
+vi.mock('../features/movies/services/tmdbClient.ts', () => ({
   tmdbFetch: vi.fn() // Reemplazamos tmdbFetch por una función espía
 }));
 

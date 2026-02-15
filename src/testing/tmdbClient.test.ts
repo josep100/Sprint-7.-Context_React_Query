@@ -16,7 +16,7 @@ vi.mock('vite', () => ({
   },
 }));
 
-import { tmdbFetch } from '../services/tmdbClient';
+import { tmdbFetch } from '../features/movies/services/tmdbClient';
 
 describe('tmdbFetch', () => {
   
