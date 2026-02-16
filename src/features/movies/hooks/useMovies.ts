@@ -34,7 +34,7 @@ const useMovies = () => {
     fetchMovies();
   }, []);
 
-  const fetchMovie = async (idMovie: string) => {
+  const fetchMovie = async (idMovie?: string) => {
     try {
       setMoviesLoading(true);
       const res = await getMovieById(idMovie);

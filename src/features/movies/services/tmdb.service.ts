@@ -9,7 +9,7 @@ export const getMovies = () => {
   );
 };
 
-export const getMovieById = (movieId: string) => {
+export const getMovieById = (movieId?: string) => {
   return tmdbFetch<MovieDetail>(`/movie/${movieId}?language=es-ES`);
 };
 

@@ -1,12 +1,12 @@
-import MoviesPage from "./pages/MoviesPage"
+import AppRoutes from "./routes/AppRoutes";
+import { BrowserRouter } from "react-router-dom"
 
 function App() {
   
-
   return (
-    <>
-       <MoviesPage />
-    </>
+      <BrowserRouter>
+          <AppRoutes />
+      </BrowserRouter>
   )
 }
 

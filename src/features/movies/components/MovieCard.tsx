@@ -1,11 +1,13 @@
 import type { Movie } from "../types/movie";
+import { Link } from "react-router-dom";
 
 const MovieCard = ({movie}: {movie: Movie}) => {
     
-    const {title, poster_path, vote_average, release_date} = movie;
+    const {id, title, poster_path, vote_average, release_date} = movie;
     const imageUrl = `https://image.tmdb.org/t/p/w500`+ `${poster_path}`;
 
     return(
+            <Link to={`/movies/${id}`}>
             <article>
                 <div>
                     <img src={imageUrl} alt={title} />
@@ -16,6 +18,7 @@ const MovieCard = ({movie}: {movie: Movie}) => {
                     <p>{release_date}</p>
                 </div>
             </article>
+            </Link>
        
     )
 }
