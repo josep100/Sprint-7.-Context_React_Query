@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import useMovies from "../hooks/useMovies";
 
-const MovieDetail = ({ idMovie }: { idMovie: string }) => {
+const MovieDetail = ({ idMovie }: { idMovie?: string }) => {
   const { selectedMovie, fetchMovie, moviesError, moviesLoading } = useMovies();
 
   useEffect(() => {

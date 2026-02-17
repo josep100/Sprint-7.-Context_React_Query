@@ -14,7 +14,7 @@ export const getMovieById = (movieId?: string) => {
 };
 
 export const getMovieCredits = (movieId: string) => {
-  return tmdbFetch<MovieCredits>(`/movie/${movieId}/credits`);
+  return tmdbFetch<MovieCredits>(`/movie/${movieId}/credits?language=es-ES`);
 };
 
 export const getSimilarMovies = (movieId: string) => {

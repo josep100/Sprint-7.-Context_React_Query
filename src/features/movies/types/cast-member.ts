@@ -3,4 +3,5 @@ export interface CastMember {
   name: string;
   character: string;
   profile_path: string | null;
+  order: number;
 }
