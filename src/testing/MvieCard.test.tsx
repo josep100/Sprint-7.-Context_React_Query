@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import MovieCard from "../features/movies/components/MovieCard";
 import type { Movie } from "../features/movies/types/movie";
 import { describe, expect, it } from "vitest";
+import { MemoryRouter } from "react-router-dom";
 
 
 
@@ -16,12 +17,20 @@ describe("MovieCard", () => {
   };
 
   it("renders the movie title", () => {
-    render(<MovieCard movie={mockMovie} />);
+    render(
+        <MemoryRouter>
+          <MovieCard movie={mockMovie} />
+        </MemoryRouter>
+        );
     expect(screen.getByText("Interstellar")).toBeInTheDocument();
   });
 
   it("renders the movie image with correct src", () => {
-    render(<MovieCard movie={mockMovie} />);
+    render(
+        <MemoryRouter>
+          <MovieCard movie={mockMovie} />
+        </MemoryRouter>
+        );
     const image = screen.getByRole("img");
     expect(image).toHaveAttribute(
       "src",
@@ -30,12 +39,20 @@ describe("MovieCard", () => {
   });
 
   it("renders the vote average", () => {
-    render(<MovieCard movie={mockMovie} />);
+    render(
+        <MemoryRouter>
+          <MovieCard movie={mockMovie} />
+        </MemoryRouter>
+        );
     expect(screen.getByText("8.5")).toBeInTheDocument();
   });
 
   it("renders the release date", () => {
-    render(<MovieCard movie={mockMovie} />);
+    render(
+        <MemoryRouter>
+          <MovieCard movie={mockMovie} />
+        </MemoryRouter>
+        );
     expect(screen.getByText("2014-11-07")).toBeInTheDocument();
   });
 });

@@ -3,6 +3,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import MovieList from "../features/movies/components/MovieList";
 import type { Movie } from "../features/movies/types/movie";
 import useMovies from "../features/movies/hooks/useMovies";
+import { MemoryRouter } from "react-router-dom";
 
 // 👇 Mockeamos el hook completo
 vi.mock("../features/movies/hooks/useMovies");
@@ -75,7 +76,11 @@ describe("MovieList", () => {
         fetchSimilarMovies: async () => {},
     });
 
-    render(<MovieList />);
+    render(
+      <MemoryRouter>
+        <MovieList />
+      </MemoryRouter>
+      );
 
     expect(screen.getByText("Interstellar")).toBeInTheDocument();
   });
