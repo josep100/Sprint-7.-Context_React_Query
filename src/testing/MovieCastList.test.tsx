@@ -23,12 +23,48 @@ const baseMock: ReturnType<typeof useMovies> = {
 
 describe("MovieCastList", () => {
   const mockCast = [
-    { id: 1, name: "Actor 1", character: "Char 1", profile_path: "/1.jpg", order: 2 },
-    { id: 2, name: "Actor 2", character: "Char 2", profile_path: "/2.jpg", order: 0 },
-    { id: 3, name: "Actor 3", character: "Char 3", profile_path: "/3.jpg", order: 1 },
-    { id: 4, name: "Actor 4", character: "Char 4", profile_path: "/4.jpg", order: 3 },
-    { id: 5, name: "Actor 5", character: "Char 5", profile_path: "/5.jpg", order: 4 },
-    { id: 6, name: "Actor 6", character: "Char 6", profile_path: "/6.jpg", order: 5 },
+    {
+      id: 1,
+      name: "Actor 1",
+      character: "Char 1",
+      profile_path: "/1.jpg",
+      order: 2,
+    },
+    {
+      id: 2,
+      name: "Actor 2",
+      character: "Char 2",
+      profile_path: "/2.jpg",
+      order: 0,
+    },
+    {
+      id: 3,
+      name: "Actor 3",
+      character: "Char 3",
+      profile_path: "/3.jpg",
+      order: 1,
+    },
+    {
+      id: 4,
+      name: "Actor 4",
+      character: "Char 4",
+      profile_path: "/4.jpg",
+      order: 3,
+    },
+    {
+      id: 5,
+      name: "Actor 5",
+      character: "Char 5",
+      profile_path: "/5.jpg",
+      order: 4,
+    },
+    {
+      id: 6,
+      name: "Actor 6",
+      character: "Char 6",
+      profile_path: "/6.jpg",
+      order: 5,
+    },
   ];
 
   beforeEach(() => {
@@ -40,7 +76,7 @@ describe("MovieCastList", () => {
       ...baseMock,
       MovieCredits: {
         id: 123,
-        cast: mockCast
+        cast: mockCast,
       },
       moviesLoading: true,
       moviesError: null,
@@ -57,7 +93,7 @@ describe("MovieCastList", () => {
       ...baseMock,
       MovieCredits: {
         id: 123,
-        cast: mockCast
+        cast: mockCast,
       },
       moviesLoading: false,
       moviesError: "error al cargar",
@@ -90,7 +126,7 @@ describe("MovieCastList", () => {
       ...baseMock,
       MovieCredits: {
         id: 123,
-        cast: mockCast
+        cast: mockCast,
       },
       moviesLoading: false,
       moviesError: null,
@@ -107,7 +143,7 @@ describe("MovieCastList", () => {
       ...baseMock,
       MovieCredits: {
         id: 123,
-        cast: mockCast
+        cast: mockCast,
       },
       moviesLoading: false,
       moviesError: null,
@@ -130,7 +166,7 @@ describe("MovieCastList", () => {
       ...baseMock,
       MovieCredits: {
         id: 123,
-        cast: mockCast
+        cast: mockCast,
       },
       moviesLoading: false,
       moviesError: null,
