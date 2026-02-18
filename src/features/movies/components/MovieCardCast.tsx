@@ -1,4 +1,4 @@
-import type { CastMember } from "../types/cast-member";
+
 
 const MovieCardCast = ({ name, character, profile_path }: {name: string, character: string, profile_path: string | null}) => {
   return (

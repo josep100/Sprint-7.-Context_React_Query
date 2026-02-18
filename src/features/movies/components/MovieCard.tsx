@@ -18,8 +18,7 @@ const MovieCard = ({movie}: {movie: Movie}) => {
                     <p>{release_date}</p>
                 </div>
             </article>
-            </Link>
-       
+            </Link>    
     )
 }
 
