@@ -5,7 +5,9 @@ function App() {
   
   return (
       <BrowserRouter>
+        <main>
           <AppRoutes />
+        </main>
       </BrowserRouter>
   )
 }

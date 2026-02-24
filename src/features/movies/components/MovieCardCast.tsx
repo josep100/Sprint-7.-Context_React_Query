@@ -4,7 +4,7 @@ const MovieCardCast = ({ name, character, profile_path }: {name: string, charact
   return (
     <ul className="flex gap-6">
       <li>
-        <article className="bg-white rounded-lg shadow-md overflow-hidden">
+        <article className="bg-white rounded-lg shadow-md overflow-hidden w-3xs lg:w-fit">
           <img
             src={
               profile_path

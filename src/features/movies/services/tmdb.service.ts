@@ -3,9 +3,9 @@ import type { MovieDetail } from '../types/movie-detail';
 import type { MovieCredits } from '../types/movie-credits';
 import { tmdbFetch } from './tmdbClient';
 
-export const getMovies = () => {
+export const getMovies = (page = 1) => {
   return tmdbFetch<MoviesResponse>(
-    '/discover/movie?include_adult=false&include_video=false&language=es-ES&page=1&sort_by=popularity.desc'
+    `/discover/movie?include_adult=false&include_video=false&language=es-ES&page=${page}&sort_by=popularity.desc`
   );
 };
 
