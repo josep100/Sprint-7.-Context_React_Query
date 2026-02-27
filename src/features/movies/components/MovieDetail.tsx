@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import LogoutButton from "@/features/auth/component/Logout";
+
 import useMovies from "../hooks/useMovies";
 
 const MovieDetail = ({ idMovie }: { idMovie?: string }) => {
@@ -51,7 +53,6 @@ const MovieDetail = ({ idMovie }: { idMovie?: string }) => {
 
   return (
     <>
-    
       <section
         className="relative w-full min-h-137.5 flex items-center"
         style={{
@@ -60,18 +61,21 @@ const MovieDetail = ({ idMovie }: { idMovie?: string }) => {
           backgroundPosition: "center",
         }}
       >
-       
         <div className="absolute inset-0 bg-linear-to-r from-zinc-900 via-zinc-900/90 to-zinc-900/70" />
 
-        
-        <Link
-          to="/movies"
-          className="absolute top-6 left-6 z-20 flex items-center gap-2 text-white bg-zinc-900/60 backdrop-blur-md px-4 py-2 rounded-full hover:bg-zinc-800 transition duration-300"
-        >
-          <ArrowLeft size={18} />
-          <span className="text-sm font-medium">Volver</span>
-        </Link>
+        <div className="absolute top-3 left-0 w-full px-6 z-20">
+          <div className="flex justify-between items-center  mx-auto">
+            <Link
+              to="/movies"
+              className="flex items-center gap-2 text-white bg-zinc-900/60 backdrop-blur-md px-4 py-2 rounded-full hover:bg-zinc-800 transition duration-300"
+            >
+              <ArrowLeft size={18} />
+              <span className="text-sm font-medium">Volver</span>
+            </Link>
 
+            <LogoutButton textColor="text-white" />
+          </div>
+        </div>
         <article className="relative z-10 flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto px-6 py-14 w-full">
           {/* Poster */}
           <figure className="shrink-0">
@@ -82,7 +86,6 @@ const MovieDetail = ({ idMovie }: { idMovie?: string }) => {
             />
           </figure>
 
-          
           <div className="flex flex-col  gap-8 text-white">
             <header>
               <h2 className="text-4xl font-bold">{title}</h2>
@@ -93,22 +96,18 @@ const MovieDetail = ({ idMovie }: { idMovie?: string }) => {
               </p>
             </header>
 
-            
             <div className="flex items-center gap-4">
               <div
                 className={`w-16 h-16 rounded-full border-4 bg-zinc-900 flex items-center justify-center text-lg font-bold ${getScoreColor(
-                  vote_average
+                  vote_average,
                 )}`}
               >
                 {vote_average.toFixed(1)}
               </div>
 
-              <span className="text-sm font-medium">
-                Puntuación de usuario
-              </span>
+              <span className="text-sm font-medium">Puntuación de usuario</span>
             </div>
 
-            
             <section>
               <h3 className="text-xl font-semibold">Sinopsis</h3>
               <p className="mt-3 text-zinc-200 leading-relaxed max-w-3xl">
