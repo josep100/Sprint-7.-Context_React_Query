@@ -15,7 +15,7 @@ const ErrorState = ({
 
     <div className="flex-1 flex items-center justify-center p-6">
   <section
-    className="max-w-md w-full text-center flex flex-col items-center"
+    className="max-w-md w-full text-center flex flex-col items-center mt-31.75"
     role="alert"
     aria-labelledby="error-title"
     aria-describedby="error-description"
