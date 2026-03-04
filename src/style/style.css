@@ -122,3 +122,21 @@
     @apply bg-background text-foreground;
     }
 }
+
+
+@theme {
+
+  /* 🎨 Colores */
+  --color-primary: #ec1313;
+  --color-background-light: #ffffff;
+  --color-background-dark: #ffffff;
+
+  /* 🔤 Fuente */
+  --font-display: "Spline Sans", sans-serif;
+
+  /* 🔲 Border radius */
+  --radius: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+}

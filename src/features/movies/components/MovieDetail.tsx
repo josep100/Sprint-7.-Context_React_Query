@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import LogoutButton from "@/features/auth/component/Logout";
 
 import useMovies from "../hooks/useMovies";
+import ErrorState from "@/components/ui/ErrorState";
 
 const MovieDetail = ({ idMovie }: { idMovie?: string }) => {
   const navigate = useNavigate();
@@ -23,7 +24,10 @@ const MovieDetail = ({ idMovie }: { idMovie?: string }) => {
   }, [idMovie]);
 
   if (moviesLoading) return <p className="text-white p-10">Cargando...</p>;
-  if (moviesError) return <p className="text-red-500 p-10">{moviesError}</p>;
+  if (moviesError) return <ErrorState title="no encontrada"
+      description="Lo sentimos, el ID de la película que buscas no existe en nuestra base
+      de datos. Es posible que haya sido eliminada o el enlace sea incorrecto."
+      />
   if (!selectedMovie) return null;
 
   const {

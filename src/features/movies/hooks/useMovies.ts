@@ -66,7 +66,7 @@ const useMovies = () => {
       const credits = await getMovieCredits(id);
       setMovieCredits(credits);
     } catch {
-      setMoviesError("Error al cargar los créditos");
+      throw new Error("Error al cargar créditos");
     } finally {
       setMoviesLoading(false);
     }
@@ -78,7 +78,7 @@ const useMovies = () => {
       const similar = await getSimilarMovies(id);
       setSimilarMovies(similar.results);
     } catch {
-      setMoviesError("Error al cargar películas similares");
+      throw new Error("Error al películas similares");
     } finally {
       setMoviesLoading(false);
     }
