@@ -58,7 +58,7 @@ const MovieDetail = ({ idMovie }: { idMovie?: string }) => {
   return (
     <>
       <section
-        className="relative w-full min-h-137.5 flex items-center"
+        className="relative w-full min-h-137.5 flex items-center mt-18"
         style={{
           backgroundImage: `url(${banner})`,
           backgroundSize: "cover",
@@ -76,8 +76,6 @@ const MovieDetail = ({ idMovie }: { idMovie?: string }) => {
               <ArrowLeft size={18} />
               <span className="text-sm font-medium">Volver</span>
             </Link>
-
-            <LogoutButton textColor="text-white" />
           </div>
         </div>
         <article className="relative z-10 flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto px-6 py-14 w-full">
