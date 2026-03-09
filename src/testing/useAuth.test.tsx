@@ -2,11 +2,13 @@ import { renderHook, act } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { useAuth } from "@/features/auth/hooks/useAuth";
 import * as authService from "@/features/auth/services/loginService";
+import type { UserCredential } from "firebase/auth";
 
 vi.mock("@/features/auth/services/loginService");
 
 describe("useAuth hook", () => {
   const mockUser = { uid: "123", email: "test@mail.com" };
+  const mockCredential = {} as UserCredential;
 
   beforeEach(() => {
     vi.clearAllMocks();
@@ -30,7 +32,7 @@ describe("useAuth hook", () => {
   });
 
   it("login success", async () => {
-    vi.spyOn(authService, "loginService").mockResolvedValue(undefined);
+    vi.spyOn(authService, "loginService").mockResolvedValue(mockCredential);
 
     const { result } = renderHook(() => useAuth());
 
@@ -60,7 +62,7 @@ describe("useAuth hook", () => {
   });
 
   it("register success", async () => {
-    vi.spyOn(authService, "registerService").mockResolvedValue(undefined);
+    vi.spyOn(authService, "registerService").mockResolvedValue(mockCredential);
 
     const { result } = renderHook(() => useAuth());
 

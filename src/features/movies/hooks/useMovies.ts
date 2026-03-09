@@ -15,18 +15,17 @@ const useMovies = () => {
   const [MovieCredits, setMovieCredits] = useState<MovieCredits | null>(null);
   const [similarMovies, setSimilarMovies] = useState<Movie[]>([]);
 
-  const [page, setPage] = useState(1); // 👈 nuevo
+  const [page, setPage] = useState(1); 
   const [moviesLoading, setMoviesLoading] = useState(false);
   const [moviesError, setMoviesError] = useState<string | null>(null);
 
-  // 🔥 función reutilizable
   const fetchMovies = async (pageNumber: number) => {
     try {
       setMoviesLoading(true);
 
       const res = await getMovies(pageNumber);
 
-      setMovies(prev => [...prev, ...res.results]); // 👈 acumulamos
+      setMovies(prev => [...prev, ...res.results]); 
 
     } catch (err) {
       setMoviesError("Error al cargar películas");
@@ -35,19 +34,19 @@ const useMovies = () => {
     }
   };
 
-  // 🔥 primera carga
+  
   useEffect(() => {
     fetchMovies(1);
   }, []);
 
-  // 🔥 botón cargar más
+  
   const loadMoreMovies = () => {
     const nextPage = page + 1;
     setPage(nextPage);
     fetchMovies(nextPage);
   };
 
-  // ---------- DETALLE ----------
+  
   const fetchMovie = async (idMovie?: string) => {
     try {
       setMoviesLoading(true);
@@ -91,10 +90,10 @@ const useMovies = () => {
     similarMovies,
     moviesLoading,
     moviesError,
+    loadMoreMovies, 
     fetchMovie,
     fetchMovieCredits,
     fetchSimilarMovies,
-    loadMoreMovies, // 👈 exportamos
   };
 };
 

@@ -5,10 +5,10 @@ import type { Movie } from "../features/movies/types/movie";
 import useMovies from "../features/movies/hooks/useMovies";
 import { MemoryRouter } from "react-router-dom";
 
-// 👇 Mockeamos el hook completo
+
 vi.mock("../features/movies/hooks/useMovies");
 
-// 👇 Creamos una versión tipada del mock
+
 const mockedUseMovies = vi.mocked(useMovies);
 
 describe("MovieList", () => {
@@ -46,6 +46,7 @@ describe("MovieList", () => {
         fetchMovie: async () => {},
         fetchMovieCredits: async () => {},
         fetchSimilarMovies: async () => {},
+        loadMoreMovies: vi.fn()
     });
 
     render(<MovieList />);
@@ -75,6 +76,7 @@ describe("MovieList", () => {
         fetchMovie: async () => {},
         fetchMovieCredits: async () => {},
         fetchSimilarMovies: async () => {},
+        loadMoreMovies: vi.fn()
     });
 
     render(

@@ -1,16 +1,13 @@
-// MovieDetail.test.tsx
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import MovieDetail from "../features/movies/components/MovieDetail";
 import useMovies from "../features/movies/hooks/useMovies";
 import { MemoryRouter } from "react-router-dom";
 
-// Mockeamos el hook
 vi.mock("../features/movies/hooks/useMovies");
-const mockUseMovies = useMovies as unknown as vi.Mock;
+const mockUseMovies = useMovies as unknown as ReturnType<typeof vi.fn>;
 
 
-// Datos de ejemplo de una película
 const mockMovie = {
   title: "Inception",
   overview: "A thief who steals corporate secrets...",

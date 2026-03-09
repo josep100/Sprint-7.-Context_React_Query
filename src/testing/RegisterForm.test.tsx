@@ -5,7 +5,7 @@ import RegisterForm from "@/features/auth/component/RegisterForm";
 import { useAuthContext } from "@/features/auth/context/AuthContext";
 import { MemoryRouter } from "react-router-dom";
 
-// ---------- MOCKS ----------
+
 
 const registerMock = vi.fn();
 const navigateMock = vi.fn();
@@ -22,9 +22,9 @@ vi.mock("react-router-dom", async () => {
   };
 });
 
-const mockedUseAuthContext = useAuthContext as unknown as vi.Mock;
+const mockedUseAuthContext = useAuthContext as unknown as ReturnType<typeof vi.fn>;
 
-// ---------- TESTS ----------
+
 
 describe("RegisterForm", () => {
   beforeEach(() => {

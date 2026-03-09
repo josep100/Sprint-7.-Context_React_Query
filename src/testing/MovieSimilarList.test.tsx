@@ -26,6 +26,7 @@ describe("MovieSimilarList", () => {
     fetchMovie: vi.fn(),
     fetchMovieCredits: vi.fn(),
     fetchSimilarMovies: vi.fn(),
+    loadMoreMovies:vi.fn()
   };
 
   const mockSimilarMovies = [

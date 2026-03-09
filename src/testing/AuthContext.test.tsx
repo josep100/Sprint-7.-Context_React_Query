@@ -8,7 +8,7 @@ describe("AuthContext", () => {
 
   it("provides auth context correctly", () => {
     const authMock = {
-      user: { email: "test@mail.com" },
+      user: { email: "test@mail.com" } as any,
       login: vi.fn(),
       register: vi.fn(),
       logout: vi.fn(),

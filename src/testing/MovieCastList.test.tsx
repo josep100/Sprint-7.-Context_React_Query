@@ -19,6 +19,7 @@ const baseMock: ReturnType<typeof useMovies> = {
   fetchMovie: vi.fn(),
   fetchMovieCredits: vi.fn(),
   fetchSimilarMovies: vi.fn(),
+  loadMoreMovies: vi.fn()
 };
 
 describe("MovieCastList", () => {

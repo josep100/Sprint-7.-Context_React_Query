@@ -1,17 +1,16 @@
-// LoginForm.test.tsx
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { describe, it, vi, expect, beforeEach } from "vitest";
 import LoginForm from "../features/auth/component/LoginForm";
 import { useAuthContext } from "../features/auth/context/AuthContext";
 import { BrowserRouter } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import userEvent from "@testing-library/user-event";
 
-// Mock context y hooks
+
+
 vi.mock("../features/auth/context/AuthContext.tsx");
-const mockedAuthContext = useAuthContext as unknown as vi.Mock;
+const mockedAuthContext = useAuthContext as unknown as ReturnType<typeof vi.fn>;
 
-// Mock useNavigate
+
 vi.mock("react-router-dom", async () => {
   const actual = (await vi.importActual("react-router-dom")) as object;
   return {
@@ -19,7 +18,7 @@ vi.mock("react-router-dom", async () => {
     useNavigate: vi.fn(),
   };
 });
-const mockedNavigate = useNavigate as unknown as vi.Mock;
+const mockedNavigate = useNavigate as unknown as ReturnType<typeof vi.fn>;
 
 describe("LoginForm", () => {
   const loginMock = vi.fn();
