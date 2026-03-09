@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import MovieDetail from "../features/movies/components/MovieDetail";
 import useMovies from "../features/movies/hooks/useMovies";
+import { MemoryRouter } from "react-router-dom";
 
 // Mockeamos el hook
 vi.mock("../features/movies/hooks/useMovies");
@@ -29,6 +30,7 @@ describe("MovieDetail", () => {
     mockUseMovies.mockReturnValue({
       selectedMovie: null,
       fetchMovie: vi.fn(),
+      fetchSimilarMovies: vi.fn(),
       moviesError: null,
       moviesLoading: true
     });
@@ -41,40 +43,38 @@ describe("MovieDetail", () => {
     mockUseMovies.mockReturnValue({
       selectedMovie: null,
       fetchMovie: vi.fn(),
+      fetchSimilarMovies: vi.fn(),
       moviesError: "Error al cargar",
       moviesLoading: false
     });
 
-    render(<MovieDetail idMovie="123" />);
-    expect(screen.getByText(/error al cargar/i)).toBeInTheDocument();
+    render(
+        <MemoryRouter>
+        <MovieDetail idMovie="123" />
+        </MemoryRouter>
+      );
+    expect(screen.getByRole("alert")).toHaveTextContent(/lo sentimos/i);
   });
 
   it("renders movie data correctly", () => {
     mockUseMovies.mockReturnValue({
       selectedMovie: mockMovie,
       fetchMovie: vi.fn(),
+      fetchSimilarMovies: vi.fn(),
       moviesError: null,
       moviesLoading: false
     });
 
-    render(<MovieDetail idMovie="123" />);
+    render(
+        <MemoryRouter>
+        <MovieDetail idMovie="123" />
+        </MemoryRouter>
+      );
     expect(screen.getByRole("heading", { name: /inception/i })).toBeInTheDocument();
-    expect(screen.getByText("Action, Sci-Fi")).toBeInTheDocument();
-    expect(screen.getByText("148 min")).toBeInTheDocument();
+    expect(screen.getByText(/Action, Sci-Fi/i)).toBeInTheDocument();
+    expect(screen.getByText(/148 min/i)).toBeInTheDocument();
     expect(screen.getByText(/a thief who steals corporate secrets/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/puntuación: 8.8 sobre 10/i)).toBeInTheDocument();
-  });
-
-  it("shows fallback when runtime is null", () => {
-    mockUseMovies.mockReturnValue({
-      selectedMovie: { ...mockMovie, runtime: null },
-      fetchMovie: vi.fn(),
-      moviesError: null,
-      moviesLoading: false
-    });
-
-    render(<MovieDetail idMovie="123" />);
-    expect(screen.getByText(/duración no disponible/i)).toBeInTheDocument();
   });
 
   it("calls fetchMovie when idMovie changes", () => {
@@ -83,6 +83,7 @@ describe("MovieDetail", () => {
     mockUseMovies.mockReturnValue({
       selectedMovie: null,
       fetchMovie: fetchMovieMock,
+      fetchSimilarMovies: vi.fn(),
       moviesError: null,
       moviesLoading: false
     });

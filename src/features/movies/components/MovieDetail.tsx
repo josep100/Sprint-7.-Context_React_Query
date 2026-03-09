@@ -1,13 +1,11 @@
 import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import LogoutButton from "@/features/auth/component/Logout";
-
 import useMovies from "../hooks/useMovies";
 import ErrorState from "@/components/ui/ErrorState";
 
 const MovieDetail = ({ idMovie }: { idMovie?: string }) => {
-  const navigate = useNavigate();
+  
 
   const {
     selectedMovie,
@@ -103,6 +101,8 @@ const MovieDetail = ({ idMovie }: { idMovie?: string }) => {
                 className={`w-16 h-16 rounded-full border-4 bg-zinc-900 flex items-center justify-center text-lg font-bold ${getScoreColor(
                   vote_average,
                 )}`}
+                role="img"
+                aria-label={`Puntuación: ${vote_average} sobre 10`}
               >
                 {vote_average.toFixed(1)}
               </div>

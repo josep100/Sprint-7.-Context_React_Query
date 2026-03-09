@@ -18,7 +18,7 @@ const MovieList = () => {
           disabled={moviesLoading}
           className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg text-white disabled:opacity-50 w-full"
         >
-          {moviesLoading ? "Cargando..." : "Cargar más"}
+          {moviesLoading ? "Cargando más..." : "Cargar más"}
         </button>
       </div>
     </>

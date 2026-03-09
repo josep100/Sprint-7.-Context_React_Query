@@ -38,22 +38,3 @@ export const subscribeToAuthChanges = (
   return onAuthStateChanged(auth, callback);
 };
 
-
-
-// // Import the functions you need from the SDKs you need
-// import { initializeApp } from "firebase/app";
-// // TODO: Add SDKs for Firebase products that you want to use
-// // https://firebase.google.com/docs/web/setup#available-libraries
-
-// // Your web app's Firebase configuration
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDlLTdpo_FO3izh645nGeizHKApf42gkJ4",
-//   authDomain: "app-movies-c3ac6.firebaseapp.com",
-//   projectId: "app-movies-c3ac6",
-//   storageBucket: "app-movies-c3ac6.firebasestorage.app",
-//   messagingSenderId: "371744071881",
-//   appId: "1:371744071881:web:552e5e396b782033b0ad18"
-// };
-
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);

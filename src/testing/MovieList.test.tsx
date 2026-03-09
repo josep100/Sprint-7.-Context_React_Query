@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, beforeEach, vitest } from "vitest";
 import MovieList from "../features/movies/components/MovieList";
 import type { Movie } from "../features/movies/types/movie";
 import useMovies from "../features/movies/hooks/useMovies";
@@ -27,6 +27,7 @@ describe("MovieList", () => {
         fetchMovie: async () => {},
         fetchMovieCredits: async () => {},
         fetchSimilarMovies: async () => {},
+        loadMoreMovies: vitest.fn()
     });
 
     render(<MovieList />);
