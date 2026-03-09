@@ -1,10 +1,10 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
-// 1. Esto debe ir ANTES que el import de tu servicio
+
 vi.stubEnv('VITE_API_URL', 'https://api.test.com');
 vi.stubEnv('VITE_API_KEY', 'mi-token-de-prueba-123');
 
-// Forzamos a Vitest a que use estos valores para import.meta.env
+
 vi.mock('vite', () => ({
   import: {
     meta: {
@@ -32,18 +32,18 @@ describe('tmdbFetch', () => {
       json: () => Promise.resolve(mockData),
     } as Response);
 
-    // Act
+    
     const result = await tmdbFetch('/movie/popular');
 
-    // Assert
+    
     expect(result).toEqual(mockData);
     
-    // CORRECCIÓN: La URL y el Token deben ser los que pusiste arriba en el stubEnv
+    
     expect(fetch).toHaveBeenCalledWith(
-      expect.stringContaining('https://api.test.com'), // Verifica que no haya doble barra //
+      expect.stringContaining('https://api.test.com'), 
       expect.objectContaining({
         headers: {
-          Authorization: 'Bearer mi-token-de-prueba-123', // Debe coincidir con el stubEnv
+          Authorization: 'Bearer mi-token-de-prueba-123', 
           'Content-Type': 'application/json',
         }
       })

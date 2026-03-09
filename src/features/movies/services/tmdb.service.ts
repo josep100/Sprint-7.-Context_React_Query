@@ -21,8 +21,3 @@ export const getSimilarMovies = (movieId: string) => {
   return tmdbFetch<MoviesResponse>(`/movie/${movieId}/similar?language=es-ES`);
 };
 
-// https://api.themoviedb.org/3/movie/{movie_id}
-// https://api.themoviedb.org/3/movie/{movie_id}/credits
-// https://api.themoviedb.org/3/movie/{movie_id}/similar
-// getMovieCredits(id)
-// getSimilarMovies(id)

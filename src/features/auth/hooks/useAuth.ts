@@ -1,4 +1,3 @@
-// src/features/auth/hooks/useAuth.ts
 import { useEffect, useState } from "react";
 import type { User } from "firebase/auth";
 import {

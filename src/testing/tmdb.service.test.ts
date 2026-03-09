@@ -1,22 +1,22 @@
 import { describe, it, expect, vi } from 'vitest';
 import { getMovies, getMovieById } from '../features/movies/services/tmdb.service';
-import { tmdbFetch } from '../features/movies/services/tmdbClient'; // Importamos la original para mockearla
+import { tmdbFetch } from '../features/movies/services/tmdbClient'; 
 
-// 1. Mockeamos el módulo completo del cliente
+
 vi.mock('../features/movies/services/tmdbClient.ts', () => ({
-  tmdbFetch: vi.fn() // Reemplazamos tmdbFetch por una función espía
+  tmdbFetch: vi.fn() 
 }));
 
 describe('tmdb.service', () => {
 
   it('getMovies should call tmdbFetch with the popular movies endpoint', async () => {
     const mockData = { results: [] };
-    // Configuramos qué devuelve el mock solo para este test
+    
     vi.mocked(tmdbFetch).mockResolvedValue(mockData);
 
     const result = await getMovies();
 
-    // Assert: Verificamos que se llamó al cliente con el string exacto
+    
     expect(tmdbFetch).toHaveBeenCalledWith(
       '/discover/movie?include_adult=false&include_video=false&language=es-ES&page=1&sort_by=popularity.desc'
     );
@@ -29,7 +29,7 @@ describe('tmdb.service', () => {
 
     await getMovieById(movieId);
 
-    // Assert: Verificamos que el ID se inyectó correctamente en el string
+    
     expect(tmdbFetch).toHaveBeenCalledWith(`/movie/550?language=es-ES`);
   });
 });
